@@ -43,24 +43,25 @@ play.addEventListener("click", playAudio);
 
 function nextSong() {
     songIndex++;
-    loadSong(songs[songIndex]);
-    isPlay = false;
-    play.classList.toggle('pause');
-    playAudio();
         if (songIndex > songs.length - 1){
             songIndex = 0;
         }
+    loadSong(songs[songIndex]);
+    isPlay = false;
+    play.classList.toggle('pause');
+    playAudio();    
 }
 next.addEventListener("click", nextSong);
 
 function preSong() {
     songIndex--;
+        if (songIndex < 0){
+            songIndex = 3;  
+        }
     loadSong(songs[songIndex]);
     isPlay = false;
     play.classList.toggle('pause');
     playAudio();
-        if (songIndex < 0){
-            songIndex = 3;
-        }
+        
 }
 pre.addEventListener("click", preSong)
